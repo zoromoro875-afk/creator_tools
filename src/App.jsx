@@ -31,7 +31,7 @@ export default function HookGenerator() {
     setResults(null);
 
     try {
-      const ai = new GoogleGenAI({ apiKey: keyToUse });
+      const ai = new GoogleGenerativeAI(keyToUse);
 
       const prompt = `
 أنت خبير في صناعة المحتوى الرقمي والتسويق عبر شبكات التواصل الاجتماعي.
@@ -63,7 +63,8 @@ export default function HookGenerator() {
 }
 `;
 
-      const response = await ai.models.generateContent({
+      const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
+const response = await model.generateContent(prompt);
         model: 'gemini-2.5-flash',
         contents: prompt,
         config: {
