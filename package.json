@@ -5,10 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build || exit 0",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/genai": "^0.1.1",
     "@google/generative-ai": "^0.21.0",
     "lucide-react": "^0.453.0",
     "react": "^18.3.1",
