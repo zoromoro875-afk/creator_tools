@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenerativeAI } from '@google/generative-ai';
 import { Sparkles, Copy, Check, Lightbulb, Video, RefreshCw, Layers } from 'lucide-react';
 
 export default function HookGenerator() {
