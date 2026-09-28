@@ -63,16 +63,13 @@ export default function HookGenerator() {
 }
 `;
 
-      const model = ai.getGenerativeModel({ model: "gemini-1.5-flash" });
-const response = await model.generateContent(prompt);
-        model: 'gemini-2.5-flash',
-        contents: prompt,
-        config: {
-          responseMimeType: 'application/json',
-        },
+            const model = ai.getGenerativeModel({ 
+        model: "gemini-1.5-flash",
+        generationConfig: { responseMimeType: "application/json" }
       });
 
-      const parsedData = JSON.parse(response.text);
+      const response = await model.generateContent(prompt);
+      const parsedData = JSON.parse(response.response.text());
       setResults(parsedData);
     } catch (err) {
       console.error(err);
